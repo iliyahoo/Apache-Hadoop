@@ -19,10 +19,14 @@
 <configuration>
     <property>
         <name>fs.defaultFS</name>
-        <value>hdfs://ah-master-01:9000</value>
+        <value>hdfs://cluster-01</value>
     </property>
     <property>
         <name>io.file.buffer.size</name>
         <value>131072</value>
+    </property>
+    <property>
+        <name>dfs.journalnode.edits.dir</name>
+        <value>/disk05/qjm/data</value>
     </property>
 </configuration>
