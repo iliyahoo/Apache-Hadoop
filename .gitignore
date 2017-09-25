@@ -3,6 +3,8 @@ apache_hadoop-node.box
 #config/.ssh
 hadoop
 hadoop-2.7.4
+zookeeper
+zookeeper-3.4.10
 *.tar.gz
 *.rpm
 logs

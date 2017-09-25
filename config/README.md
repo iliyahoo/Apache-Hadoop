@@ -16,3 +16,12 @@ alias jps='jps | grep -v Jps'
 chmod +x /vagrant/config/jps_status.sh
 cd /vagrant/hadoop/bin
 ln -s ../../config/jps_status.sh
+
+
+
+export YARN_EXAMPLES=/vagrant/hadoop/share/hadoop/mapreduce
+yarn jar $YARN_EXAMPLES/hadoop-mapreduce-examples-2.7.4.jar pi 16 1000
+
+hadoop-daemon.sh start journalnode
+
+mr-jobhistory-daemon.sh start historyserver
