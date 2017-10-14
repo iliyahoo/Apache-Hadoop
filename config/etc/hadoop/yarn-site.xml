@@ -14,10 +14,6 @@
 -->
 <configuration>
     <property>
-        <name>yarn.resourcemanager.hostname</name>
-        <value>ah-master-03</value>
-    </property>
-    <property>
         <name>yarn.resourcemanager.scheduler.class</name>
         <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
     </property>
@@ -80,5 +76,37 @@
     <property>
         <name>yarn.log-aggregation.retain-check-interval-seconds</name>
         <value>3600</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.ha.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.cluster-id</name>
+        <value>cluster01</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.ha.rm-ids</name>
+        <value>rm1,rm2</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.hostname.rm1</name>
+        <value>ah-master-02</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.hostname.rm2</name>
+        <value>ah-master-03</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.webapp.address.rm1</name>
+        <value>ah-master-02:8088</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.webapp.address.rm2</name>
+        <value>ah-master-03:8088</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.zk-address</name>
+        <value>ah-master-01:2181,ah-master-02:2181,ah-master-03:2181</value>
     </property>
 </configuration>
