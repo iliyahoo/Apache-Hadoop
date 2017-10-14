@@ -41,4 +41,50 @@
         <name>fs.trash.checkpoint.interval</name>
         <value>1440</value>
     </property>
+    <property>
+        <name>hadoop.proxyuser.root.groups</name>
+        <value>*</value>
+        <description>
+             The 'root' user is allowed to proxy all members of the 'users-group1' and
+             'users-group2' groups. Note that in most cases you will need to include the
+             group "root" because the user "root" (which usually belonges to "root" group) will
+             generally be the user that initially executes the mount on the NFS client system.
+             Set this to '*' to allow root user to proxy any group.
+        </description>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.root.hosts</name>
+        <value>ah-master-03</value>
+        <description>
+             This is the host where the nfs gateway is running. Set this to '*' to allow
+             requests from any hosts to be proxied.
+        </description>
+    </property>
+    <property>
+        <name>nfs.superuser</name>
+        <value>root</value>
+    </property>
+    <property>
+        <name>dfs.namenode.accesstime.precision</name>
+        <value>3600000</value>
+        <description>The access time for HDFS file is precise upto this value.
+            The default value is 1 hour. Setting a value of 0 disables
+            access times for HDFS.
+        </description>
+    </property>
+    <property>
+        <name>nfs.dump.dir</name>
+        <value>/tmp/.hdfs-nfs</value>
+    </property>
+    <property>
+        <name>nfs.exports.allowed.hosts</name>
+        <value>192.168.12.135 rw</value>
+    </property>
+    <property>
+        <name>nfs.metrics.percentiles.intervals</name>
+        <value>100</value>
+        <description>Enable the latency histograms for read, write and
+            commit requests. The time unit is 100 seconds in this example.
+        </description>
+    </property>
 </configuration>

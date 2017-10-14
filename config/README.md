@@ -25,3 +25,21 @@ yarn jar $YARN_EXAMPLES/hadoop-mapreduce-examples-2.7.4.jar pi 16 1000
 hadoop-daemon.sh start journalnode
 
 mr-jobhistory-daemon.sh start historyserver
+
+# httpFS
+hadoop/sbin/httpfs.sh start
+curl -sS 'http://localhost:14000/webhdfs/v1?op=gethomedirectory&user.name=iliya'
+curl -c ~/.httpfsauth "http://localhost:14000/webhdfs/v1?op=homedir&user.name=iliya"
+
+curl -v -sS 'http://localhost:14000//webhdfs/v1/user/user.name=iliya&op=GETFILESTATUS'
+
+curl -sS 'http://localhost:14000//webhdfs/v1/user?user.name=iliya&op=GETFILESTATUS'
+
+
+curl -X POST http://localhost:14000/webhdfs/v1/user/root/bar?user.name=iliya&doas=root&op=mkdirs
+curl http://localhost:14000/webhdfs/v1/user/root?op=list
+
+# NFS Gateway
+systemctl disable rpcbind.socket && systemctl stop rpcbind.socket
+hadoop-daemon.sh --script hdfs start portmap
+hadoop-daemon.sh --script hdfs start nfs3
